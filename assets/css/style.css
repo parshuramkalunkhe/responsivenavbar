@@ -1,0 +1,233 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Roboto&display=swap');
+/* BASE */
+
+/* 
+   header height    : 3rem;
+   body color       : #e0e4eb;
+   menu color       : #edeff1;
+   color            : #2980b9;
+   box shadow       : 0 4px 4px #edeff1,
+                      0 4px 4px #cacfd8;
+   font size        : 1.5rem;
+   normal font size : .938rem;
+   font-family      : 'Open Sans', 'Poppins', Roboto',  sans-serif;
+   z index          : 100;      
+typography for minimun width 768px {
+   font size        : 1rem;
+   normal font size : 1rem;
+}
+*/
+
+/* VARIABLES CSS */
+:root{
+    --header-height: 3rem;
+
+    /* COLORS */
+    --body-color: #e0e4eb;
+    --menu-color: #edeff1;
+    --title-color: #2980b9;
+    --text-color: #0e0e0e;
+    --text-s-color: #424242;
+
+    /* FONT AND TYPOGRAPHY */
+    --body-font: 'Poppins', sans-serif;
+    --title-size: 1.5rem;
+    --text-size: .938;
+    --text-s-size: .875;
+    
+    /* Z INDEX */
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px) {
+    :root{
+        --title-size: 1rem;
+        --text-size: 1rem;
+    }
+}
+
+/* BASE */
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--text-size);
+    font-weight: 500;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.bd-grid{
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: 100%;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+/* MAIN */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    padding: 0 1rem;
+    background-color: #edeff1;
+    z-index: var(--z-fixed);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px #cacfd8;
+}
+
+.header_logo{
+    color: #2980b9;
+}
+
+.header_toggle {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #2980b9;
+}
+
+/* NAV */
+@media screen and (max-width: 768px) {
+    .nav{
+        position: fixed;
+        top: 0;
+        left: -100%;
+        background-color: var(--menu-color);
+        box-shadow: 2px 0 4px #cacfd8;;
+        width: 85%;
+        height: 100vh;
+        padding: 2rem 0;
+        z-index: var(--z-fixed);
+        transition: .5s;
+        overflow: auto;
+    }
+    
+}
+
+.nav_content{
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+}
+
+.nav_item{
+    margin-bottom: 2rem;
+}
+
+.nav_link {
+    color: var(--title-color);
+    transition: ease-in-out 300ms;
+}
+
+.nav_link:hover{
+    color: var(--text-s-color);
+}
+
+.searchbar {
+    border: 2px solid #2980b9;
+    width: 200px;
+    display: flex;
+    border-radius: 50px;
+    padding: 4px;
+    margin-bottom: 2rem;
+}
+
+.search {
+    border: none;
+    width: 100%;
+    height: 100%;
+    background: none;
+    padding: 0 12px;
+    font-weight: 500;
+    color: #424242;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.search_icon{
+    color: #2980b9;
+    display: flex;
+    align-content: center;
+    padding: 0 12px;
+}
+
+/* SHOW MENU */
+.show{
+    left: 0;
+}
+
+/*  */
+.active{
+    color: var(--text-s-color);
+}
+
+/*  */
+@media screen and (min-width: 567px) {
+    .nav{
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 770px) {
+    body{
+        margin: 0;
+    }
+    .header{
+        height: calc(var(--header-height) + 1rem);
+    }
+    .header_toggle{
+        display: none;
+    }
+
+    .nav_content{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        float: right;
+    }
+    .nav{
+        width: 80%;
+    }
+    .nav_list{
+        display: flex;
+    }
+    .searchbar{
+        margin-bottom: 0;
+    }
+    .nav_item{
+        padding: 1rem;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .bd-grid{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
